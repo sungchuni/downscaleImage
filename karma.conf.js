@@ -1,4 +1,4 @@
-const TEST_TARGET = "./*.@(spec|test).js";
+const TEST_TARGET = "./*.@(spec|test).ts";
 
 module.exports = function (config) {
   config.set({
@@ -21,7 +21,13 @@ module.exports = function (config) {
     singleRun: true,
     concurrency: Infinity,
     webpack: {
-      mode: "development"
+      mode: "development",
+      resolve: {
+        extensions: [".ts", ".js"]
+      },
+      module: {
+        rules: [{test: /\.ts$/, loader: "ts-loader"}]
+      }
     }
   });
 };
