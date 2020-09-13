@@ -1,4 +1,4 @@
-async function downscaleImage(
+export default async function downscaleImage(
   file,
   {
     mimeType = "image/jpeg",
